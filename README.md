@@ -5,5 +5,7 @@ The Ultimate Django Course by Mosh. Here I practice algoside with the course. He
 **PART - 1** <br />
 **PART - 2** <br />
 **PART - 3** <br />
+<u>This text will appear underlined</u>
+
 
 
