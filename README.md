@@ -6,7 +6,7 @@ The Ultimate Django Course by Mosh. Here I practice algoside with the course. He
 **PART - 2** <br />
 **PART - 3** <br />
 
-**# What I learned from this Course** <br/>
+**What I learned from this Course** <br/>
 **Part- 1** <br/>
 * Create a Virtual Environment. <br/>
 * Create a Django Project. <br/> 
@@ -16,6 +16,13 @@ The Ultimate Django Course by Mosh. Here I practice algoside with the course. He
 * Creating Some DATA MODELS named Promotion, Collection, Product, Customer, Order, Address, Cart, Review, Tag, Likes etc. <br/>
 * Setting Up Postgres As Database Management System. <br/>
 * Running Migrations, Reverting Migrations. <br/>
+
+
+**Topics** <br/>
+1.	**Data Models** (Fields, Choice Fields, Relationships(One-to-One, One-to-Many, Many-to-Many), Association Class, Circular Relationship, Generic Relationship) <br/>
+2.	**Migration** (Migrations,Customizing Database Schema,Reverting Migrations) <br/>
+3.	**Django ORM** (Retrieving Objects, Filtering Objects, Q Objects, F Objects, Sorting, Limiting, Selected Related, Aggregating, Annotating, Database Function, Grouping Data, Querying Generic Relationship, Creating, Updating, Deleting, Transactions, Raw SQL ) <br/>
+
 
 
 
