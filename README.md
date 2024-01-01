@@ -23,6 +23,12 @@ The Ultimate Django Course by Mosh. Here I practice algoside with the course. He
 2.	**Migration** (Migrations,Customizing Database Schema,Reverting Migrations) <br/>
 3.	**Django ORM** (Retrieving Objects, Filtering Objects, Q Objects, F Objects, Sorting, Limiting, Selected Related, Aggregating, Annotating, Database Function, Grouping Data, Querying Generic Relationship, Creating, Updating, Deleting, Transactions, Raw SQL ) <br/>
 
+**Packages** <br/>
+Django               5.0 <br/>
+django-debug-toolbar 4.2.0 <br/>
+psycopg2             2.9.9 <br/>
+
+
 
 
 
