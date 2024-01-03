@@ -75,7 +75,13 @@ class ProductViewSet(ModelViewSet):
         
 class ReviewViewSet(ModelViewSet):
     serializer_class = ReviewModelSerializer
-    queryset = Review.objects.all()
+    #queryset = Review.objects.all()
+    def get_queryset(self):
+        return Review.objects.filter(product_id=self.kwargs['Product_pk'])
+        
+    def get_serializer_context(self):
+        product_id = self.kwargs.get('Product_pk')
+        return {'product_id':product_id}
     
 #APIVIEW CLASS 
 ''' ''' 
