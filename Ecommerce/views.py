@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter,OrderingFilter
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -20,6 +21,9 @@ def product_list(request):
     if request.method == 'GET':
         products = Product.objects.all()
         filter_set = ProductFilter(request.GET, queryset=products)
+        search_param = request.GET.get('search', '')
+        if search_param:
+            filter_set = filter_set.filter(search_param)
         filtered_objects = filter_set.qs
         #Filter
         '''
@@ -77,8 +81,10 @@ def collection_detail(request, pk):
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductModelSerializer
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend,SearchFilter,OrderingFilter]
     filterset_class = ProductFilter
+    search_fields = ['title','description']
+    ordering_fields = ['unit_price']
     
     #Filter
     '''

@@ -8,3 +8,4 @@ class ProductFilter(FilterSet):
             'collection_id': ['exact'],
             'unit_price': ['gt', 'lt']
         }
+        search_fields = ['title', 'description']
