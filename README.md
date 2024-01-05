@@ -29,6 +29,7 @@ The Ultimate Django Course by Mosh. Here I practice algoside with the course. He
 - Create some Function Based Api-Views.
 - Create some Class Based Api-Views, Mixins, Generics Views, ViewSets.
 - Create Routers, Nested Router.
+- Filter, Generic Filter, Searching, Sorting, Pagination.
 
 **Topics** <br/>
 
@@ -36,7 +37,7 @@ The Ultimate Django Course by Mosh. Here I practice algoside with the course. He
 2. **Migration** (Migrations,Customizing Database Schema,Reverting Migrations) <br/>
 3. **Django ORM** (Retrieving Objects, Filtering Objects, Q Objects, F Objects, Sorting, Limiting, Selected Related, Aggregating, Annotating, Database Function, Grouping Data, Querying Generic Relationship, Creating, Updating, Deleting, Transactions, Raw SQL ) <br/>
 4. **Serialization** (Serializers, ModelSerializers, Custom Serializer Fields, Serailizing Relationships, Deserializer, Data Validation, Saving/Deleting/Updating Objects) <br/>
-5. **API VIEW** (Function Based, Class Based, Mixins, Generics, ViewSets, Router, Nested Router )
+5. **API VIEW** (Function Based, Class Based, Mixins, Generics, ViewSets, Router, Nested Router, Filter , Generic Filter,Searching, Sorting, Pagination )
 
 **Packages** <br/>
 
@@ -45,3 +46,4 @@ The Ultimate Django Course by Mosh. Here I practice algoside with the course. He
 - psycopg2 2.9.9 <br/>
 - djangorestframework 3.14.0 <br/>
 - drf-nested-routers 0.93.5 <br/>
+- django-filter 23.5 <br/>

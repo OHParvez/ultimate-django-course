@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.db.models import Count
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -9,6 +10,7 @@ from rest_framework.mixins import CreateModelMixin,ListModelMixin,DestroyModelMi
 from rest_framework.viewsets import ModelViewSet
 from .serializers import ProductSerializer,CollectionSerializer,ProductModelSerializer,CollectionModelSerializer,ReviewModelSerializer
 from .models import Product,Collection,Review
+from .filters import ProductFilter
 
 #FUNCTION BASED VIEWS
 @api_view(['GET','POST'])
@@ -17,9 +19,18 @@ def product_list(request):
     # products = Product.objects.select_related('collection').all()
     if request.method == 'GET':
         products = Product.objects.all()
+        filter_set = ProductFilter(request.GET, queryset=products)
+        filtered_objects = filter_set.qs
+        #Filter
+        '''
+        collection_id = request.query_params.get('collection_id')
+        if collection_id is not None:
+            products = Product.objects.filter(collection_id=collection_id)
+        '''
         #serializer = ProductSerializer(products, many=True, context={'request':request})
-        serializer = ProductModelSerializer(products, many=True, context={'request':request})
+        serializer = ProductModelSerializer(filtered_objects, many=True, context={'request':request})
         return Response( serializer.data, status = status.HTTP_200_OK )
+    
     elif request.method == 'POST':
         serializer = ProductModelSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -66,6 +77,18 @@ def collection_detail(request, pk):
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductModelSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = ProductFilter
+    
+    #Filter
+    '''
+    def get_queryset(self):
+        queryset = Product.objects.all()
+        collection_id = self.request.query_params.get('collection_id')
+        if collection_id is not None:
+            queryset = Product.objects.filter(collection_id=collection_id)
+        return queryset
+    '''
     
     def perform_destroy(self, instance):
         if instance.orderitem_set.count() > 0:

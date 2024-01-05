@@ -6,7 +6,7 @@ from rest_framework.routers import SimpleRouter,DefaultRouter
 from rest_framework_nested import routers
 
 router = routers.DefaultRouter()
-router.register(r'Products', ProductViewSet)
+router.register(r'Products', ProductViewSet, basename='Products')
 product_router = routers.NestedDefaultRouter(router, r'Products', lookup='Product')
 product_router.register(r'Reviews', ReviewViewSet, basename='Product-Review')
 
